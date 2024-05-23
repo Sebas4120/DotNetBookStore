@@ -8,5 +8,10 @@ namespace DotNetBookStore.Controllers
         {
             return View();
         }
+
+        public IActionResult Browse()
+        {
+            return View();
+        }
     }
 }
