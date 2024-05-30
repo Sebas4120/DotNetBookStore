@@ -9,8 +9,9 @@ namespace DotNetBookStore.Controllers
             return View();
         }
 
-        public IActionResult Browse()
+        public IActionResult Browse(string category)
         {
+            ViewBag.Category = category; //ViewBag is a dynamic object, methd that send data from CONTROLLER Action Method to View
             return View();
         }
     }
