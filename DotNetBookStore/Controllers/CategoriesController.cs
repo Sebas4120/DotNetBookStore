@@ -10,6 +10,7 @@ namespace DotNetBookStore.Controllers
             //paso 1: Aca creamos los datos en el Model
 
             //Use the Category Model to generate 10 categories in memory to display in the view
+
             //List list contains Model Category objects
             var categories = new List<Category>();
             //adding categories objects to this list
@@ -28,6 +29,12 @@ namespace DotNetBookStore.Controllers
         {   
             //This is the process to passing the value to my View
             ViewBag.Category = category; //ViewBag is a dynamic object, methd that send data from CONTROLLER Action Method to View
+            return View();
+        }
+
+        //Creating this new action method 
+        public IActionResult Create()
+        {
             return View();
         }
     }
