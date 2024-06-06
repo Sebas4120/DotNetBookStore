@@ -16,5 +16,8 @@ namespace DotNetBookStore.Models
         public int CategoryId { get; set; } // This is a primary key
         [Required(ErrorMessage ="A customized error message")]
         public string Name { get; set; }
+
+        //child reference to Books (1 category / many books)
+        public List<Book>? Books { get; set; }
     }
 }
