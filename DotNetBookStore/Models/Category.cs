@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DotNetBookstore.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DotNetBookStore.Models
 {
@@ -19,6 +20,8 @@ namespace DotNetBookStore.Models
 
         //child reference to Books (1 category / many books)
             //For child and parent reference we have to use '?'
+
+        // Como una categoria tiene VARIOS LIBROS, uso 'List'
         public List<Book>? Books { get; set; }
     }
 }
