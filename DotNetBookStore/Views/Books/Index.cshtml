@@ -43,7 +43,11 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                    @if(item.Image != null)
+                    {
+                        
+                    }
+                @* @Html.DisplayFor(modelItem => item.Image) *@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)

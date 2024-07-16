@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotNetBookStore.Data;
 using DotNetBookstore.Models;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotNetBookStore.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class BooksController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -59,10 +62,16 @@ namespace DotNetBookStore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Author,Title,Image,Price,MatureContent,CategoryId")] Book book)
+        public async Task<IActionResult> Create([Bind("BookId,Author,Title,Image,Price,MatureContent,CategoryId")] Book book, IFormFile? Image)
         {
             if (ModelState.IsValid)
             {
+                //upload Image if there is one
+                if(Image != null)
+                {
+                    var fileName = UploadImage(Image);
+                    book.Image = fileName;
+                }
                 _context.Add(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

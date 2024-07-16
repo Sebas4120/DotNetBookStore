@@ -18,5 +18,18 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+a{
+    color:darkred;
+}
+
+.btn-primary {
+    background-color: #8BC34A;
+}
+
+.navbar-dark {
+    background-color: #FFA000;
 }
