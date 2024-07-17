@@ -33,3 +33,12 @@ a{
 .navbar-dark {
     background-color: #FFA000;
 }
+
+
+th > a {
+    text-decoration: none;
+}
+
+.card-body > a {
+    text-decoration: none;
+}
